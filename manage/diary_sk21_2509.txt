@@ -1,0 +1,38 @@
+playData (inflearn)
+	playdata.io/precourse_python
+	python 	playdata@8734
+	github	playdata@7276
+	
+extention (vscode)
+	korean
+	python
+	jupyter
+
+표현식(Expression) : 값으로 평가되는 구문(statement)
+	- 리터럴(literal) : 자체가 값
+	- 식(평가되어 새로운 값을 생성) : 2+2
+
+GIT HUB
+create repository
+	git remote add origin https://github.com/shinbat6/skn21.git
+	git remote add origin https://sinbat6@github.com/shinbat6/skn21.git
+git remote -vscode
+git config --global credential.helper store
+
+- 커밋
+1.git status	
+	- 빨강색 : add 할 대상
+	- 초록색 : commit 할 대상
+2.git add 파일명
+	git add .
+		- staging/indexing
+		- commit에 포함시킬 파일들을 추가
+3.git commit -m "커밋메시지"		
+4.git push
+	- 로컬의 커밋을 원격과 동기화(로컬->원격)
+
+- 원격저장소 로컬에 복제
+git init
+git clone url
+	- https://github.com/kgmyhGit/SKN21-inst.git
+	-(참고) git init : 로컬저장소를 생성
