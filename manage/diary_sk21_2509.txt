@@ -11,12 +11,22 @@ extention (vscode)
 표현식(Expression) : 값으로 평가되는 구문(statement)
 	- 리터럴(literal) : 자체가 값
 	- 식(평가되어 새로운 값을 생성) : 2+2
+blog
+	https://github.com/sujileelea/sujileelea.github.io
+	sujileelea/sujileelea.github.io
+		이 블로그는 Obsidian 문서를 그대로 가져와 MkDocs(Material)로 빌드합니다.
+https://github.com/sujileelea/sujileelea.github.io.git
+https://github.com/sujileelea/sujileelea.github.io.git
+
+shinbat@daum.net	신병탁1!
+
 
 GIT HUB
 create repository
-	git remote add origin https://github.com/shinbat6/skn21.git
-	git remote add origin https://sinbat6@github.com/shinbat6/skn21.git
-git remote -vscode
+	git remote add origin https://github.com/shinbat/shinbat.github.io.git
+	git remote add origin https://github.com/shinbat/skn21.git
+	git remote add origin https://sinbat@github.com/shinbat/skn21.git
+git remote -v
 git config --global credential.helper store
 
 - 커밋
@@ -36,3 +46,6 @@ git init
 git clone url
 	- https://github.com/kgmyhGit/SKN21-inst.git
 	-(참고) git init : 로컬저장소를 생성
+
+git remote -v 
+git remote set-url origin https://github.com/shinbat/skn21.git
