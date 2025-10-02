@@ -51,3 +51,4 @@ git remote -v
 git remote set-url origin https://github.com/shinbat/skn21.git
 
 연습이야
+연습2
