@@ -50,3 +50,6 @@ git clone url
 git remote -v 
 git remote set-url origin https://github.com/shinbat/skn21.git
 
+C:\py_repo\skn21\python_basic\streamlit_docs>streamlit run 01_write.py
+C:\py_repo\skn21\python_basic\streamlit_docs>streamlit hello
+
