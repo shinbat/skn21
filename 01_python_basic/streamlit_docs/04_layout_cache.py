@@ -51,7 +51,7 @@ col4.metric(label="일본JPY(100엔)", value="958.63 원", delta="-7.44 원")
 #########################################################
 
 # DataFrame 데이터를 제공하는 함수.
-@st.cache_data
+# @st.cache_data
 def get_data():
     print("get_data")
     df = pd.read_csv("data/boston_housing.csv")

@@ -13,7 +13,7 @@ extention (vscode)
 	- 식(평가되어 새로운 값을 생성) : 2+2
 blog
 	https://github.com/sujileelea/sujileelea.github.io
-	sujileelea/sujileelea.github.io
+	sujileelea.github.io
 		이 블로그는 Obsidian 문서를 그대로 가져와 MkDocs(Material)로 빌드합니다.
 https://github.com/sujileelea/sujileelea.github.io.git
 https://github.com/sujileelea/sujileelea.github.io.git

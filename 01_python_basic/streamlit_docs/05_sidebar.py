@@ -15,7 +15,8 @@ v1 = st.sidebar.slider("X", 1, 10)
 st.write("선택된 값: ", f"**{v1}**")
 
 v2 = st.sidebar.text_input("이름")
-st.write("이름: " + f"**{v2}**")
+if v2:
+    st.write("이름: " + f"**{v2}**")
 
 v3 = st.sidebar.radio(
     "지역선택",
