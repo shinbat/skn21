@@ -13,7 +13,7 @@ SELECT 기본 구문 - 연산자, 컬럼 별칭
 *************************************** */
 
 -- EMP 테이블의 모든 컬럼의 모든 항목을 조회 (전직원 정보 조회).
-
+select * from emp;
 
 -- EMP 테이블의 직원 ID(emp_id), 직원 이름(emp_name), 업무(job) 컬럼의 값을 조회.
 
@@ -38,7 +38,7 @@ SELECT 기본 구문 - 연산자, 컬럼 별칭
 
 
 -- EMP 테이블에서 직원의 이름(emp_name), 급여(salary), 급여(salary)을 연봉으로 조회. (곱하기 12)
-
+select * from emp;
 
 -- EMP 테이블의 직원의 이름(emp_name), 급여(salary)를 조회하는데 급여 앞에 '$'를 붙여서 조회한다.
 
@@ -57,6 +57,10 @@ where 절을 이용한 행 선택
 ************************************* */
 
 -- EMP 테이블에서 직원_ID(emp_id)가 110인 직원의 이름(emp_name)과 부서명(dept_name)을 조회
+select 
+*
+from emp
+where binary emp_name = 'Steven' ;
 
  
 -- EMP 테이블에서 'Sales' 부서에 속하지 않은 직원들의 ID(emp_id), 이름(emp_name),  부서명(dept_name)을 조회.
@@ -75,14 +79,21 @@ where 절을 이용한 행 선택
 
 
 -- EMP 테이블에서 직원 이름(emp_name)의 세 번째 문자가 “e”인 모든 사원의 이름을 조회
-
-
+select
+emp_name, substring(emp_name, 3, 1)
+from emp
+-- where substring(emp_name, 3, 1) = 'e';
+where emp_name like '__e%';
 -- EMP 테이블에서 직원의 이름에 '%' 가 들어가는 직원의 ID(emp_id), 직원이름(emp_name) 조회
 --    %나 _ 를 검색하는 값으로 사용할 경우. 
+select 
+*
+from emp
+where emp_name like '%\%%';
 
 
 -- EMP 테이블에서 부서명(dept_name)이 null인 직원의 ID(emp_id), 이름(emp_name), 부서명(dept_name)을 조회.
-
+select * from emp where dept_name is null;
 
 -- EMP 테이블에서 커미션이 있는(comm_pct가 null이 아닌)  직원들을 모든 컬럼값들을 조회
 
@@ -90,10 +101,10 @@ where 절을 이용한 행 선택
 
 -- EMP 테이블에서 2004년에 입사한 직원들의 ID(emp_id), 이름(emp_name), 입사일(hire_date)을 조회.
 -- 참고: date/datatime에서 년도만 추출 함수: year(컬럼명)
-
+select * from emp where year(hire_date) = '2004';
 
 -- EMP 테이블에서 연봉(salary * 12) 이 200,000 이상인 직원들의 모든 정보를 조회.
-
+select * from emp where salary * 12 > 200000;
 
 /* ******************************************
  WHERE 조건이 여러개인 경우 AND 나 OR 로 조건들을 묶어준다.
@@ -116,7 +127,10 @@ where 절을 이용한 행 선택
 
 
 -- EMP 테이블에서 업무(job)에 'MAN'이 들어가는 직원들 중에서 부서(dept_name)가 'Shipping' 이고 2005년이후 입사한  직원들을 조회.
-
+select * from emp
+where job like '%man%'
+and dept_name = 'shipping'
+and year(hire_date) > 2005;
 
 -- EMP 테이블에서 업무(job)에 'MAN'이 들어가는 직원들 중에서 'Marketing' 이나 'Sales' 부서에 소속된 직원들의 ID(emp_id), 이름(emp_name), 업무(job), 부서(dept_name)를 조회. 
 

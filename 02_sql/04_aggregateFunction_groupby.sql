@@ -29,22 +29,21 @@
 
 -- EMP 테이블에서 급여(salary)의 총합계, 평균, 최소값, 최대값, 표준편차, 분산, 총직원수를 조회 
 
-
 -- EMP 테이블에서 가장 최근 입사일(hire_date)과 가장 오래된 입사일을 조회
-
+select max(hire_date), min(hire_date) from emp;
 
 -- EMP 테이블의 부서(dept_name) 의 개수를 조회
-
+select count(distinct ifnull(dept_name,'')) from emp  ;
+select distinct dept_name from emp  ;
 
 --  커미션 비율(comm_pct)이 있는 직원의 수를 조회
-
+SELECT count(*) FROM emp WHERE comm_pct is not NULL;
+SELECT count(comm_pct) FROM emp;
 
 --  최고 급여액과 최저 급여액 그리고 그 둘의 차액을 출력
 
-
 -- 가장 긴 직원 이름(emp_name)이 몇글자 인지 조회.
-
-
+select max(char_length(emp_name)) from emp;
 
 /* **************
 group by 절
@@ -64,19 +63,50 @@ group by 절
 ****************/
 
 -- 업무(job)별 급여의 총합계, 평균, 최소값, 최대값, 표준편차, 분산, 직원수를 조회
-
+select 
+	job
+	, sum(salary)
+	, avg(salary)
+	, count(*)
+from emp
+group by job;
 
 -- 입사연도 별 직원들의 급여 평균.
-
+select 
+	year(hire_date)
+	, round(avg(salary))
+from emp
+group by year(hire_date)
+order by year(hire_date);
 
 -- 부서명(dept_name) 이 'Sales'이거나 'Purchasing' 인 직원들의 업무별 (job) 직원수를 조회. 직원수가 많은 순서대로 정렬.
-
+select 
+	job 
+	, count(*)
+from emp
+where dept_name in ('sales', 'purchasing')
+group by job
+order by count(*) desc;
 
 -- 부서(dept_name), 업무(job) 별 최대급여(salary)와 최소급여를 조회.
-
+select
+	dept_name 
+	, job
+	, max(salary)
+	, min(salary)
+from emp 
+group by dept_name 
+		, job;
 
 -- 급여(salary)가 10,000 이하인 직원수와 10,000초과인 직원수 조회.
-
+select case when salary <= 10000 then '이하'
+			else '이상' 
+		end gubun
+	, count(*)
+from emp
+group by case when salary <= 10000 then '이하'
+			else '이상'
+		end;
 
 -- 부서명(dept_name), 업무(job)별 직원수, 최고급여(salary)를 조회. 부서이름으로 오름차순 정렬.
 
@@ -100,15 +130,42 @@ having 절
 ************************************************************** */
 
 -- 20명 이상이 입사한 년도와 (그 해에) 입사한 직원들의 평균 급여, 직원수를 조회.
-
+select 
+	year(hire_date)
+	, avg(salary)
+	, count(*)
+from emp 
+group by year(hire_date)
+having count(*) >= 20;
 
 -- 평균 급여가(salary) $5000 이상인 부서의 이름(dept_name)과 평균 급여(salary), 직원수를 조회
-
-
+select 
+	dept_name 
+	, avg(salary)
+	, count(*)
+from emp 
+group by dept_name 
+having avg(salary) >= 5000
+order by 2
+;
 -- 평균급여가 $5,000 이상이고 소속직원수가 열명 이상인 부서의 이름은?
-
+select 
+	dept_name
+from emp
+	group by dept_name 
+	having avg(salary) >= 5000
+		and count(*) >= 10
+;
 
 --  커미션이 있는 직원들의 입사년도별 평균 급여를 조회. 단 평균 급여가 $9,000 이상인 년도분만 조회.
+select 
+	year(hire_date)
+	, avg(salary)
+from emp
+where comm_pct is not null 
+group by year(hire_date)
+	having avg(salary) >= 9000
+	
 
 
 

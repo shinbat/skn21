@@ -39,6 +39,12 @@ grant all privileges on *.* to 'playdata'@'localhost';
 grant all privileges on *.* to 'playdata'@'%';
 
 show grants for 'playdata'@'%';
+
+-- create table testdb.member;
+-- 특정db를 사용 -> 
+-- use database이름 
+use testdb;
+
 /***********************************************************************************************************
 테이블 생성
 create table 테이블 이름 (컬럼명  데이터타입  [제약조건])
@@ -59,12 +65,22 @@ age:       int            check key - 양수만 값으로 가진다.
 join_date: timestamp      not null, 기본값-값 저장시 일시
 ***********************************************************************************************************/
 -- 테이블 생성
-
+create table member(
+	id varchar(10) primary key,
+    password varchar(10) not null,
+    name varchar(30) not null,
+    point int,
+    email varchar(100) unique key,
+    gender char(1) not null check(gender in('m', 'f')),
+    age int check(age > 0),
+    join_date timestamp not null default current_timestamp -- insert 시점의 일시를 저장.
+);
+show tables;
+-- 테이블 상세정보를 조회(컬럼)
+desc member;
 
 -- 테이블 삭제
-
-
-
+-- drop table if exists member; 
 
 /* *********************************************************************
 INSERT 문 - 행 추가
@@ -73,8 +89,18 @@ INSERT 문 - 행 추가
    - INSERT INTO 테이블명 (컬럼 [, 컬럼]) VALUES (값 [, 값[])
      - 모든 컬럼에 값을 넣을 경우 컬럼 지정구문은 생략 할 수 있다.
      - SQL은 기본적으로 한 행(한개의 데이터)씩 테이블에 추가한다.
-
 ************************************************************************ */
+insert into member (id, password, name, point, email, gender, age, join_date) values
+('id-1', '1111', '홍길동', 1000, 'h@mail.com', 'm', 20, '2025-10-14 17:24:45');
+insert into member (id, password, name, gender) values
+('id-2', '2222', '이순신', 'm');
+insert into member (id, password, name, gender, join_date) values
+('id-3', '2222', '이순신', 'm',  '2000-10-10');	-- tiemstamp에 날짜만 insert
+insert into member (id, password, name, gender) values
+('id-4', '2222', '이순신', 'm');
+
+
+select * from member;
 
 
 
