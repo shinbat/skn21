@@ -18,10 +18,8 @@ blog
 https://github.com/sujileelea/sujileelea.github.io.git
 https://github.com/sujileelea/sujileelea.github.io.git
 
-shinbat@daum.net	신병탁1!
 
-
-GIT HUB
+GIT HUB		shinbat@daum.net	신병탁1!
 create repository
 	git remote add origin https://github.com/shinbat/shinbat.github.io.git
 	git remote add origin https://github.com/shinbat/skn21.git
@@ -42,9 +40,7 @@ git config --global credential.helper store
 	- 로컬의 커밋을 원격과 동기화(로컬->원격)
 
 - 원격저장소 로컬에 복제
-git init
-git clone url
-	- https://github.com/kgmyhGit/SKN21-inst.git
+git clone https://github.com/kgmyhGit/SKN21-inst.git
 	-(참고) git init : 로컬저장소를 생성
 
 git remote -v 
