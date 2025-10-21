@@ -16,8 +16,13 @@
     - Cross Join
         - 두 테이블의 곱집합을 반환한다. 
 ******************************************************************************** */        
+use hr_join;
+select * from emp;
+select * from dept;
+select * from job;
+select * from salary_grade;
 
-
+select * FROM emp where dept_id is null;
 
 /* ****************************************
 -- INNER JOIN
@@ -26,17 +31,27 @@ FROM  테이블a INNER JOIN 테이블b ON 조인조건
 - inner는 생략 할 수 있다.
 **************************************** */
 -- 직원의 ID(emp.emp_id), 이름(emp.emp_name), 입사년도(emp.hire_date), 소속부서이름(dept.dept_name)을 조회
-
+select e.emp_id, e.emp_name, e.hire_date, d.dept_name
+from emp e
+join dept d 
+	on e.dept_id = d.dept_id;
 
 -- 커미션을(emp.comm_pct) 받는 직원들의 직원_ID(emp.emp_id), 이름(emp.emp_name),
 -- 급여(emp.salary), 커미션비율(emp.comm_pct), 소속부서이름(dept.dept_name), 부서위치(dept.loc)를 조회. 직원_ID의 내림차순으로 정렬.
-
+select e.emp_id, e.emp_name
+from emp e
+where comm_pct is not null;
 
 -- 직원의 ID(emp.emp_id)가 100인 직원의 직원_ID(emp.emp_id), 이름(emp.emp_name), 입사년도(emp.hire_date), 소속부서이름(dept.dept_name)을 조회.
 
-
 --  직원 ID 가 200 인 직원의 직원_ID(emp.emp_id), 이름(emp.emp_name), 급여(emp.salary), 담당업무명(job.job_title), 소속부서이름(dept.dept_name)을 조회              
-
+select e.emp_id, e.emp_name, e.hire_date, d.dept_name, j.job_title
+from emp e
+join dept d 
+	on e.dept_id = d.dept_id
+join job j 
+	on e.job_id = j.job_id
+where e.emp_id = 200;
 
 -- 부서_ID(dept.dept_id)가 30인 부서의 이름(dept.dept_name), 위치(dept.loc), 그 부서에 소속된 직원의 이름(emp.emp_name)을 조회.
 
@@ -58,8 +73,11 @@ Self 조인
 **************************************************** */
 
 -- 직원 ID가 101인 직원의 직원의 ID(emp.emp_id), 이름(emp.emp_name), 상사이름(emp.emp_name)을 조회
-
-
+select 
+	e.emp_id, e.emp_name, u.emp_name
+from emp e 
+left join emp u 
+	on e.mgr_id = u.emp_id;
 
 /* ****************************************************************************
 외부 조인 (Outer Join)
@@ -89,12 +107,25 @@ from 테이블a [LEFT | RIGHT] OUTER JOIN 테이블b ON 조인조건
 
         
 --  직원_id(emp.emp_id)가 100, 110, 120, 130, 140인 직원의 ID(emp.emp_id),이름(emp.emp_name), 업무명(job.job_title) 을 조회. 업무명이 없을 경우 '미배정' 으로 조회
-
+select e.emp_id, e.emp_name, ifnul(j.job_title, '미배정')
+from emp e
+join dept d 
+	on e.dept_id = d.dept_id
+join job j 
+	on e.job_id = j.job_id
 
 
 -- 부서 ID(dept.dept_id), 부서이름(dept.dept_name)과 그 부서에 속한 직원들의 수를 조회. 직원이 없는 부서는 0이 나오도록 조회하고 직원수가 많은 부서 순서로 조회.
+select 
+	d.dept_id, d.dept_name, count(e.emp_id) cnt
+from dept d
+left join emp e
+	on d.dept_id = e.dept_id
+group by dept_id 
+		, dept_name
+order by  cnt desc;
 
-
+select month('2025-10-25 12:56:32')
 
 -- EMP 테이블에서 부서_ID(emp.dept_id)가 90 인 모든 직원들의 id(emp.emp_id), 이름(emp.emp_name), 상사이름(emp.emp_name), 입사일(emp.hire_date)을 조회. 
 -- 입사일은 yyyy/mm/dd 형식으로 출력
