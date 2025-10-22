@@ -49,3 +49,9 @@ git remote set-url origin https://github.com/shinbat/skn21.git
 C:\py_repo\skn21\python_basic\streamlit_docs>streamlit run 01_write.py
 C:\py_repo\skn21\python_basic\streamlit_docs>streamlit hello
 
+
+
+pip install beautifulsoup4  lxml
+pip install requests
+pip install selenium
+pip install webdriver-manager
