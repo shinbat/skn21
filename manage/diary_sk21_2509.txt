@@ -55,49 +55,25 @@ pip install beautifulsoup4  lxml
 pip install requests
 pip install selenium
 pip install webdriver-manager
+10.27
+07_패키지_모듈_import
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+uv venv python-3.13
+가상환경설치(uv tool)
+	해당 디렉토리에서 uv env 하면 설치된다. (.venv폴더 생성됨)
+.venv\Scripts\activate
+uv pip install pandas
+uv pip install ipykernel
+
+ctrl + shift + p
+python Select innterpreter
 
 
-https://www.formula1.com/en/drivers/fernando-alonso
+타입
+정수:int8, int16, int32, int64
+실수:float16, float32,float64
+문자:str
+s2 = a.astpe('int16')
+s2.dtype, s.dtype
 
-CREATE TABLE season_stats (
-	name VARCHAR(50) PRIMARY key COMMENT '이름',
-	season_position int,
-  	season_points int,
-	grand_prix_races int,
-	grand_prix_points int,
-	grand_prix_wins int,
-	grand_prix_podiums int,
-	grand_prix_poles int,
-	grand_prix_top_10s int,
-	dhl_fastest_laps int,
-	dnfs int,
-	sprint_races int,
-	sprint_points int,
-	sprint_wins int,
-	sprint_podiums int,
-	sprint_poles int,
-	sprint_top_10s int,
-  	create_date DATETIME NOT NULL COMMENT '생성일시'
-) COMMENT='선수별 시즌성적';
-
-CREATE TABLE career_stats (
-	name VARCHAR(50) PRIMARY key COMMENT '이름',
-	grand_prix_entered int,
-  	career_points int,
-	highest_race_finish int,
-	podiums int,
-	highest_grid_position int,
-	pole_positions int,
-	world_championships int,
-  	create_date DATETIME NOT NULL COMMENT '생성일시'
-) COMMENT='선수별 통산성적';
-
-select 
-	name
-	, (select avg(season_position) from season_stats) as season_position_avg
-	, (select avg(season_points) from season_stats) as season_position_avg
-	, (select avg(grand_prix_races) from season_stats) as season_position_avg
-	, (select avg(season_position) from season_stats) as season_position_avg
-	, (select avg(season_position) from season_stats) as season_position_avg
-	, (select avg(season_position) from season_stats) as season_position_avg
-from season_stats
