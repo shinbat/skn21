@@ -59,7 +59,7 @@ pip install webdriver-manager
 07_패키지_모듈_import
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
-uv venv python-3.13
+uv venv
 가상환경설치(uv tool)
 	해당 디렉토리에서 uv env 하면 설치된다. (.venv폴더 생성됨)
 .venv\Scripts\activate
@@ -67,7 +67,7 @@ uv pip install pandas
 uv pip install ipykernel
 
 ctrl + shift + p
-python Select innterpreter
+python Select interpreter
 
 
 타입
@@ -77,3 +77,5 @@ python Select innterpreter
 s2 = a.astpe('int16')
 s2.dtype, s.dtype
 
+
+02-869-3323 유영미차장 유틸렉스 고용보험(10.29)
