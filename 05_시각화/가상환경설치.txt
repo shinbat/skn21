@@ -1,0 +1,21 @@
+# 가상환경 생성
+uv venv .venv  --python=3.13  # 가상환경 디렉토리와 가상환경이름을 지정.
+
+# 가상환경 활성화
+.venv\Scripts\activate
+
+# VS Code에 가상환경을 python interpreter로 설정
+- 명령 팔레트 실행: control + shift + p ==> Python: Select Interpreter
+- 주피터노트북에서 "커널선택" 에서 가상환경을 설정.
+
+# 3rd party 패키지(라이브러리) 설치
+- uv pip install 패키지명
+- 반드시 uv 로 설치해야 uv로 설치한 가상환경에 라이브러리가 install 된다.
+
+ipykernel: 주피토노트북 실행을 위해 필요
+- uv pip install ipykernel pandas matplotlib
+
+# 설치 후 아래설정 해주자.
+c:\py_repo\skn21\05_시각화\.venv\Lib\site-packages\matplotlib\mpl-data\matplotlibrc
+font.family:  malgun gothic
+axes.unicode_minus: False
