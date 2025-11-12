@@ -1,0 +1,136 @@
+25.11.06
+05_평가지표
+	원본복사필요
+
+%%writefile metrics.py 주피터랩 명령어	
+
+
+%load metrics.py cell에 불러들일때
+
+
+범주형컬럼을 원핫인코딩
+범주값(클래스값)
+
+25.11.07.fri
+전처리
+Feature별 
+	범주형 
+		레이블 인코딩: 디시전트리
+		원핫인코딩(주로사용한다): 디시전트리외에 
+			상품분류
+				A		1 0 0 0
+				B		0 1 0 0
+				C       0 0 1 0
+				D(더미변수로 처리할 수 도 있다)
+		
+	수치형
+		Feature Scaling : 단위(척도)를 맞춰준다.
+			Standard Scaling(표준화)
+				평균:0, 표준편자:1
+			MinMax Scaling
+				최소:0, 최대:1
+전처리시점
+	trainSet(모델학습) : 전처리후 모델학습
+	testSet(평가) : 전처리후(trainSet기준으로) 평가
+	validationSet
+	
+결측치 처리 
+	제거:미래의 데이터에 결측치 있을 때 문제가됨
+	대체
+	
+05. 평가지표
+Accuracy : 클래스를 알 수 없다
+Recall : 정답(실제)기준
+Precision :  예측기준
+
+Recall, Precision 값이 비슷한게 좋은거다
+
+정밀도 vs 재현율
+정상을 기준으로 값이 상승/하강 여부 확인한다.
+환자 -> 정상	: 문제가 더 심각
+정상 -> 환자
+threshold를 낮추면 :  재현율 상승, 정밀도 하강
+threshold를 높이면 :  재현율 하강, 정밀도 상승
+
+분류 평가지표
+
+회귀 평가지표
+
+06 과적합/일반화
+
+과적합
+	과소적합	: 모델의 복잡도가 낮다
+	과대적합	: 모델의 복잡도가 높다
+그리드서치 
+	GridSearchCV	:전체시행(너무 많다)
+	RandomizedSearchCV	:샘플시행
+파이프라인
+	나눈후 전처리 추론 ==> 하나로 묶는것
+ColumnTransformer
+	전처리
+25.11.11 tue
+Transformer(변환기)
+	fit(), transform()
+	전처리
+	StandardScaler
+	MinMaxScaler
+	OHE
+	PCA
+	ColumnTransformer(역할은 약간다르다)
+	
+Estimator(추정(추론)기)
+	fit(), predict()
+	머신러닝 모델
+	decisionTree
+	randaomFrorest
+	SVC
+	
+07 SVM(Support Vector Machine)
+규제를 강하게하면, 모델복잡도가 낮다
+규제를 강하게한다 == 모델의 복잡도를 높인다
+	-->underfitting일 때 한다
+규제를 약하게한다 == 모델의 복잡도를 낮춘다
+	-->overfitting일 때 한다
+	
+08 KNN(K-Nearest Neighbors)
+학습용보다는 추론용 이지만 학습시간은 짧고, 추론시간이 길다.
+추론이 길면 실제서비스시간이 많이걸리니까 잘 사용하지 앟는다
+
+09 Decision Tree
+
+25.11.12 wed
+10 Ensemble
+여러개의 모델을 모아놓은것(데이터가 복잡해서)
+
+투표방식
+	Bagging
+		같은모델에서 여러개로 나눈 데이터를 각각 학습시킨다.
+		RandomForest
+	Voting
+		다른 모델로 같은데이터를 학습한다
+부스팅방식
+	오차를 에측해서 오차줄이는게 목표
+	
+	GradientBoosting(대용량으로는 가장많이 사용)
+		learning_rate(0 ~ 1 까지의 실수, 딥러닝에서는 learning_rate를 바꾸는 알고리즘도 있다)
+		n_estimators:시스템사양이 허용하는 한도로설정후 learning_rate를 찾는다
+
+11 최적화-경사하강법(딥러닝)
+Loss Function
+	fit 할때 (평가함수와는 다르다)
+최적화함수는 손실함수를 기반으로 만든다
+Gradient Descent (경사하강법)
+
+12 선형회귀
+LinearRegression(회귀) 
+LogisticRegression((이진)분류)
+
+다항회귀(Polynomial Regression)
+	전처리, underfitting일 때 Feature를 늘려준다
+Regularization(규제)
+	overfitting일 때 Feature를 줄여준다
+	Ridge(L2 규제)
+	Lasso(L1 규제)
+	ElasticNet: 절충모델	
+				
+	

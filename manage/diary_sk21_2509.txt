@@ -77,5 +77,3 @@ uv pip install ipykernel pandas scikit-learn matplotlib
 02-869-3323 유영미차장 유틸렉스 고용보험(10.29)
 
 02_matplotlib_주요그래프.ipynb <복사필요>
-
-05_평가지표 Boston 주택가격 데이터셋  못따라감 <복사필요>
