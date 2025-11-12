@@ -59,15 +59,17 @@ pip install webdriver-manager
 07_패키지_모듈_import
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
+https://www.kaggle.com/
+https://dacon.io/
 
 ##### 가상환경설치(uv tool)  ###################
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 uv venv .venv  --python=3.13  # 가상환경 디렉토리와 가상환경이름을 지정.
 	해당 디렉토리에서 uv env 하면 설치된다. (.venv폴더 생성됨)
 .venv\Scripts\activate
 ctrl + shift + p
 	python Select interpreter
-uv pip install ipykernel
-uv pip install pandas scikit-learn matplotlib
+uv pip install ipykernel pandas scikit-learn matplotlib
 .venv\Lib\site-packages\matplotlib\mpl-data\matplotlibrc
 	font.family:  malgun gothic
 	axes.unicode_minus: False
@@ -75,3 +77,5 @@ uv pip install pandas scikit-learn matplotlib
 02-869-3323 유영미차장 유틸렉스 고용보험(10.29)
 
 02_matplotlib_주요그래프.ipynb <복사필요>
+
+05_평가지표 Boston 주택가격 데이터셋  못따라감 <복사필요>
