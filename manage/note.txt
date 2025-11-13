@@ -127,10 +127,30 @@ LogisticRegression((이진)분류)
 
 다항회귀(Polynomial Regression)
 	전처리, underfitting일 때 Feature를 늘려준다
+	Feature가 1개면 직선이니까(곡선을 만들수 없다) Feature를 늘려서 다차함수를 만든다
 Regularization(규제)
 	overfitting일 때 Feature를 줄여준다
-	Ridge(L2 규제)
+	Ridge(L2 규제): 제일많이 사용함
 	Lasso(L1 규제)
-	ElasticNet: 절충모델	
-				
+	ElasticNet: 절충모델
+
+25.11.13 thu
+13 LogisticRegression
+시그모이드함수	
+
+14 Clustering
+	지도학습 : 문제, 답 다있는상태(검증, 평가가능)
+	비지도학습 : 문제만 있고 답이 없음
 	
+DEEP LEARNING
+https://pytorch.org/
+uv pip install torch torchvision
+
+import torch 실행시 에러날때(2.8로 설치)
+uv pip uninstall torch torchvision
+uv pip install torch==2.8 torchvision
+
+google drive에서 jupiterlab 사용하기(GPU 사용가능)				
+신규 > 더보기 > 연결할 앱 더보기	> colabotary
+런타임 > 런타임 유형변경 > T4 GPU (A100 GPU는 유료)
+런타임 > 런타임연결해제및삭제 (시간이 지나면 유료)

@@ -74,6 +74,5 @@ uv pip install ipykernel pandas scikit-learn matplotlib
 	font.family:  malgun gothic
 	axes.unicode_minus: False
 
-02-869-3323 유영미차장 유틸렉스 고용보험(10.29)
-
+02-869-3323 유영미차장 유틸렉스 고용보험(10.29, 11.13)
 02_matplotlib_주요그래프.ipynb <복사필요>
