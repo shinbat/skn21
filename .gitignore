@@ -1,6 +1,8 @@
 save_files/
 saved_models/
 saved_model/
+saved_dir/
+datasets/
 
 .ipynb_checkpoints/
 .venv/
@@ -9,5 +11,3 @@ saved_model/
 env
 
 __pycache__/
-
-
