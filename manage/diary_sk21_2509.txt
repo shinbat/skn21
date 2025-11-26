@@ -18,7 +18,6 @@ blog
 https://github.com/sujileelea/sujileelea.github.io.git
 https://github.com/sujileelea/sujileelea.github.io.git
 
-
 GIT HUB		shinbat@daum.net	신병탁1!
 create repository
 	git remote add origin https://github.com/shinbat/shinbat.github.io.git
@@ -49,8 +48,6 @@ git remote set-url origin https://github.com/shinbat/skn21.git
 C:\py_repo\skn21\python_basic\streamlit_docs>streamlit run 01_write.py
 C:\py_repo\skn21\python_basic\streamlit_docs>streamlit hello
 
-
-
 pip install beautifulsoup4  lxml
 pip install requests
 pip install selenium
@@ -62,6 +59,9 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 https://www.kaggle.com/
 https://dacon.io/
 
+pandas
+https://www.notion.so/2025-10-5-29b153f6ee12807587dcd6891ddf64ad
+
 ##### 가상환경설치(uv tool)  ###################
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 uv venv .venv  --python=3.13  # 가상환경 디렉토리와 가상환경이름을 지정.
@@ -70,11 +70,12 @@ uv venv .venv  --python=3.13  # 가상환경 디렉토리와 가상환경이름�
 ctrl + shift + p
 	python Select interpreter
 uv pip install ipykernel pandas scikit-learn matplotlib
+uv pip install -r requirements.txt
 .venv\Lib\site-packages\matplotlib\mpl-data\matplotlibrc
 	font.family:  malgun gothic
 	axes.unicode_minus: False
 
-02-869-3323 유영미차장 유틸렉스 고용보험(10.29, 11.13)
+02-869-3323 유영미차장 유틸렉스 고용보험(10.29, 11.13, 11.26)
 02_matplotlib_주요그래프.ipynb <복사필요>
 03 pytorch <복사필요>
 
