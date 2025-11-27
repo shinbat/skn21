@@ -16,7 +16,6 @@ blog
 	sujileelea.github.io
 		이 블로그는 Obsidian 문서를 그대로 가져와 MkDocs(Material)로 빌드합니다.
 https://github.com/sujileelea/sujileelea.github.io.git
-https://github.com/sujileelea/sujileelea.github.io.git
 
 GIT HUB		shinbat@daum.net	신병탁1!
 create repository
