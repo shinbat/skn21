@@ -1,0 +1,13 @@
+/.venv/
+/static/
+
+db.sqlite3
+.env
+
+
+
+__pycache__/
+<<<<<<< HEAD
+.DS_Store
+=======
+>>>>>>> e7de83a7bbe7efa579b1759253a3b5d9178669b8

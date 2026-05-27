@@ -1,0 +1,40 @@
+<!-- polls/templates/polls/list.html -->
+{# django template 주석 #}
+{% comment %}
+    주석
+    Django template 주석은 client(web browser)로 전송되지 않는다.
+    Template Engine이 template파일 실행시 무시한다.
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문 목록</title>
+</head>
+<body>
+{# <a href="/polls/vote_create">질문 등록</a> #}
+<a href="{% url 'polls:vote_create' %}">질문등록</a>
+<hr>
+
+<h1>설문목록</h1>
+<ul>
+    <!-- 반복문 - 
+       question_list(context_value:QuerySet)의 Question들을 출력 -->
+    {% for question in  question_list %}
+        <li>
+            <!-- /polls/vote_form/{{question.pk}} -->
+            <a href="{% url 'polls:vote_form' question.pk %}">
+                {{question.pk}}. {{question.question_text|truncatewords:2}}
+                - 글자수: {{question.question_text|length}}
+                - {{question.pub_date|date:'Y-m-d'}}
+            </a>
+        </li>
+    {% empty %}
+        {# 처음 부터 question_list가 비어있으면#}
+        <b>아직 등록된 질문이 없습니다.</b>
+    {% endfor %}
+</ul>
+</body>
+</html>

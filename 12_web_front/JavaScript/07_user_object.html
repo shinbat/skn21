@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Javascript Object 예제</h2>
+        <script>
+            const person = {
+                name: "홍길동",
+                age: 20,
+                isMarriage: false,
+                "job name": "회사원",
+                hobby: ["게임", "스포츠"],
+                go: function (place) {
+                    alert(place + "에 간다.");
+                },
+                getInfo: function () {
+                    //this -> python self
+                    info = `이름: ${this.name}, 나이: ${this.age}`;
+                    return info;
+                },
+            };
+            console.log(person.name, person['name']);
+            console.log(person.hobby[0], person["hobby"][1]);
+            console.log(person["job name"]);
+            info = person.getInfo();
+            console.log(info);
+            //값을 변경
+            person.age = 30;
+            console.log(person.getInfo());
+
+            for (let key in person) {
+                console.log(key);
+            }
+            //  구조 분해 할당
+            arr = [1, 2, 3];
+            let [v1, v2, v3] = arr;
+            console.log(v1, v2, v3);
+            let [v4, v5] = arr; 
+            console.log(v4, v5)
+            let [v6, v7, v8=-98, v9=-99] = arr; 
+            //v9: undefined(default값이 없을 때)
+            console.log(v6, v7, v8, v9);
+
+            arr2 = [1, 2, 3, 4, 5, 6, 7, 8];
+            let [a1, a2, ...a3] = arr2
+            console.log(a1, a2)
+            console.log(a3)
+
+            //객체
+            let {name, age, isMarriage} = person;
+            console.log(name, age, isMarriage);
+
+            let {name:cust_name} = person;
+            //cust_name = person.name
+            console.log(cust_name);
+        </script>
+    </body>
+</html>
